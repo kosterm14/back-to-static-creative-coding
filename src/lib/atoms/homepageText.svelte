@@ -42,6 +42,7 @@
         grid-row-start: 2;
 
         text-align: center;
+        margin-top: -25%;
     }
 
     /* tablet */

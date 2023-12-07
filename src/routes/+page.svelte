@@ -1,5 +1,5 @@
 <script>
-    import { onMount } from "svelte";
+    import { onMount, onDestroy } from "svelte";
 
     import Header from "$lib/molecules/header.svelte";
     import Footer from "$lib/molecules/footer.svelte";
@@ -7,15 +7,34 @@
 
     let loading = true;
 
-    onMount(() => {
-        // if (sessionStorage.getItem('alreadyLoaded')) {
-        //     loading = false;
-        // } else {
-        //     sessionStorage.setItem('alreadyLoaded', 'true');
+    function handleKeyDown(event) {
+        if (event.key === "L" || event.key === "l") {
+            loading = true;
             setTimeout(() => {
                 loading = false;
             }, 3000); // Adjust the delay as needed
-        // }
+        }
+    }
+
+    onMount(() => {
+        if (typeof window !== "undefined") {
+            window.addEventListener("keydown", handleKeyDown);
+
+            if (sessionStorage.getItem("alreadyLoaded")) {
+                loading = false;
+            } else {
+                sessionStorage.setItem("alreadyLoaded", "true");
+                setTimeout(() => {
+                    loading = false;
+                }, 3000); // Adjust the delay as needed
+            }
+        }
+    });
+
+    onDestroy(() => {
+        if (typeof window !== "undefined") {
+            window.removeEventListener("keydown", handleKeyDown);
+        }
     });
 </script>
 
@@ -251,6 +270,7 @@
         height: 100vh;
         animation: blur 3s linear infinite;
         /* background-color: hsl(60, 100%, 50%); */
+        background: radial-gradient(circle, transparent, var(--vtDarkBlue) 40%);
     }
 
     .container::before {
@@ -260,12 +280,15 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: radial-gradient(circle, transparent, black);
+        background: radial-gradient(circle, transparent, var(--vtYellow) 90%);
     }
 
     @keyframes blur {
         0% {
             opacity: 100%;
+        }
+        50% {
+            opacity: 75%;
         }
         100% {
             opacity: 0%;
