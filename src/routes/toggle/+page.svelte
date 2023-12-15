@@ -97,6 +97,31 @@
 </body>
 
 <style>
+    :root {
+        --color-pink: #ee82ee;
+        --color-green: #00ff1a;
+        --color-orange: #feb47b;
+        --color-purple: #ff00ff;
+        --color-cyan: #00ffff;
+        --color-gold: #ffd700;
+        --color-light-green: #adff2f;
+        --color-red-orange: #ff4500;
+        --color-dodger-blue: #1e90ff;
+        --color-deep-pink: #ff1493;
+        --color-deep-sky-blue: #00bfff;
+        --color-tomato: #ff6347;
+        --color-chartreuse: #7fff00;
+        --color-dark-orange: #ff8c00;
+        --color-indigo: #4b0082;
+        --color-white: #fff;
+        --color-light-grey: #ccc;
+        --color-blue: #2196f3;
+        --color-black: rgba(0, 0, 0, 1);
+        --color-black-70: rgba(0, 0, 0, 0.7);
+        --color-black-50: rgba(0, 0, 0, 0.5);
+        --color-black-30: rgba(0, 0, 0, 0.3);
+    }
+
     body {
         margin: 0;
         animation: colorChange 10s infinite linear;
@@ -110,11 +135,11 @@
         width: 100%;
         height: 100%;
 
-        background: radial-gradient(#ee82ee 22%, #0000 0),
-            linear-gradient(to right, #00ff1a, #feb47b);
+        background: radial-gradient(var(--color-pink) 22%, #0000 0),
+            linear-gradient(to right, var(--color-green), var(--color-orange));
         background-repeat: no-repeat;
         filter: blur(20px) contrast(50);
-        box-shadow: 0 0 0 50px #fff;
+        box-shadow: 0 0 0 50px var(--color-white);
         position: absolute;
         z-index: 0;
         align-items: center;
@@ -125,32 +150,52 @@
 
     .splash {
         background:
-            repeating-conic-gradient(#ff00ff 0 1%, #0000 0 11%),
-            repeating-conic-gradient(#0000 0 7%, #00ffff 0 9%) 50% / 100% 500%,
-            repeating-conic-gradient(#0000 0 5%, #ffd700 0 7%) 50% / 500% 800%;
+            repeating-conic-gradient(var(--color-purple) 0 1%, #0000 0 11%),
+            repeating-conic-gradient(#0000 0 7%, var(--color-cyan) 0 9%) 50% /
+                100% 500%,
+            repeating-conic-gradient(#0000 0 5%, var(--color-gold) 0 7%) 50% /
+                500% 800%;
         animation: ripple 5s infinite;
     }
+
     .splash2 {
         background:
-            repeating-conic-gradient(#0000 0 7%, #adff2f 0 9%) 50% / 800% 1200%,
-            repeating-conic-gradient(#0000 0 11%, #ff4500 0 13%) 50% / 1200%
-                700%,
-            repeating-conic-gradient(#0000 0 11%, #1e90ff 0 13%) 50% / 700% 900%;
+            repeating-conic-gradient(#0000 0 7%, var(--color-light-green) 0 9%)
+                50% / 800% 1200%,
+            repeating-conic-gradient(#0000 0 11%, var(--color-red-orange) 0 13%)
+                50% / 1200% 700%,
+            repeating-conic-gradient(
+                    #0000 0 11%,
+                    var(--color-dodger-blue) 0 13%
+                )
+                50% / 700% 900%;
         animation: ripple 10s infinite;
     }
+
     .splash3 {
         background:
-            repeating-conic-gradient(#ff1493 0 1%, #0000 0 11%),
-            repeating-conic-gradient(#0000 0 7%, #00bfff 0 9%) 50% / 100% 500%,
-            repeating-conic-gradient(#0000 0 5%, #ff6347 0 7%) 50% / 500% 800%;
+            repeating-conic-gradient(var(--color-deep-pink) 0 1%, #0000 0 11%),
+            repeating-conic-gradient(
+                    #0000 0 7%,
+                    var(--color-deep-sky-blue) 0 9%
+                )
+                50% / 100% 500%,
+            repeating-conic-gradient(#0000 0 5%, var(--color-tomato) 0 7%) 50% /
+                500% 800%;
         animation: ripple2 5s infinite;
     }
+
     .splash4 {
         background:
-            repeating-conic-gradient(#0000 0 7%, #7fff00 0 9%) 50% / 800% 1200%,
-            repeating-conic-gradient(#0000 0 11%, #ff8c00 0 13%) 50% / 1200%
-                700%,
-            repeating-conic-gradient(#0000 0 11%, #4b0082 0 13%) 50% / 700% 900%;
+            repeating-conic-gradient(#0000 0 7%, var(--color-chartreuse) 0 9%)
+                50% / 800% 1200%,
+            repeating-conic-gradient(
+                    #0000 0 11%,
+                    var(--color-dark-orange) 0 13%
+                )
+                50% / 1200% 700%,
+            repeating-conic-gradient(#0000 0 11%, var(--color-indigo) 0 13%) 50% /
+                700% 900%;
         animation: ripple2 10s infinite;
     }
 
@@ -162,10 +207,10 @@
         height: 200vh;
         background: radial-gradient(
             circle,
-            rgba(0, 0, 0, 1) 70%,
-            rgba(0, 0, 0, 0.7) 80%,
-            rgba(0, 0, 0, 0.5) 85%,
-            rgba(0, 0, 0, 0.3) 90%,
+            var(--color-black) 70%,
+            var(--color-black-70) 80%,
+            var(--color-black-50) 85%,
+            var(--color-black-30) 90%,
             transparent 100%
         );
         border-radius: 50%;
@@ -193,7 +238,7 @@
 
     .star {
         position: absolute;
-        background: #fff;
+        background: var(--color-white);
         border-radius: 50%;
         animation: twinkle 2s infinite;
         z-index: 9999;
@@ -229,7 +274,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #ccc;
+        background-color: var(--color-light-grey);
         -webkit-transition: 0.4s;
         transition: 0.4s;
     }
@@ -247,11 +292,11 @@
     }
 
     input:checked + .slider {
-        background-color: #2196f3;
+        background-color: var(--color-blue);
     }
 
     input:focus + .slider {
-        box-shadow: 0 0 10px #2196f3;
+        box-shadow: 0 0 10px var(--color-blue);
     }
 
     input:checked + .slider:before {
@@ -271,7 +316,7 @@
     @keyframes ripple {
         0%,
         100% {
-            transform: scale(1) rotate(0deg);
+            transform: scale(1.5) rotate(0deg);
         }
         10%,
         90% {
