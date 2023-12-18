@@ -137,12 +137,26 @@
         margin: auto;
 
         border-radius: 2rem;
-        border: 20px solid var(--color-lineRed);
-        background: var(--color-lineOrange);
+        border: 20px solid var(--color-linePurple);
+        
 
         position: relative;
 
         margin-left: 17rem;
+
+        transition: ease-in-out 0.2s;
+    }
+
+    .container:hover {
+        border-color: var(--color-lineRed);
+        transition: ease-in-out 0.2s;
+
+        box-shadow:
+            5px 5px 0px 0px var(--color-lineOrange),
+            10px 10px 0px 0px var(--color-lineYellow),
+            20px 20px 0px 0px var(--color-lineGreen),
+            30px 30px 0px 0px var(--color-linePurple);
+        background: var(--color-lineOrange);
     }
 
     .tile {
@@ -152,6 +166,11 @@
         visibility: hidden;
 
         animation: loadIn 2s forwards;
+    }
+
+    .tile:hover {
+        background: var(--color-lineRed);
+        scale: 1.1;
     }
 
     .tile:nth-child(1) {
