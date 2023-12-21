@@ -188,7 +188,7 @@
         z-index: 1;
 
         animation: loadIn 2s forwards;
-        animation-delay: 6s;
+        animation-delay: 5s;
 
         visibility: hidden;
     }
@@ -205,9 +205,10 @@
     .gray {
         animation:
             loadIn 2s forwards,
-            syzygal1 9s infinite,
-            move 9s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
-        animation-delay: 7s, 0s, 0s;
+            vinyl 5s infinite,
+            syzygal1 9s infinite;
+        /* move 9s cubic-bezier(0.47, 0, 0.745, 0.715) infinite; */
+        animation-delay: 5.5s, 0s, 0s, 0s;
 
         visibility: hidden;
     }
@@ -220,9 +221,10 @@
     .orange {
         animation:
             loadIn 2s forwards,
-            syzygal2 9s infinite,
-            move 9s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
-        animation-delay: 7s, 0s, 0s;
+            vinyl 5s infinite,
+            syzygal2 9s infinite;
+        /* move 9s cubic-bezier(0.47, 0, 0.745, 0.715) infinite; */
+        animation-delay: 5.5s, 0s, 0s, 0s;
 
         visibility: hidden;
     }
@@ -235,9 +237,10 @@
     .blue {
         animation:
             loadIn 2s forwards,
-            syzygal3 9s infinite,
-            move 9s cubic-bezier(0.47, 0, 0.745, 0.715) infinite;
-        animation-delay: 7s, 0s, 0s;
+            vinyl 5s infinite,
+            syzygal3 9s infinite;
+        /* move 9s cubic-bezier(0.47, 0, 0.745, 0.715) infinite; */
+        animation-delay: 5.5s, 0s, 0s, 0s;
 
         visibility: hidden;
     }
@@ -253,17 +256,24 @@
         right: 23%;
         width: 13%;
 
-        animation: loadIn 2s forwards;
-        animation-delay: 8s;
+        animation:
+            loadIn 2s forwards,
+            shake 5s 7s forwards,
+            shake2 5s 7s infinite;
+        animation-delay: 6s, 6s, 11s;
 
         visibility: hidden;
 
         /* z-index: 1; */
     }
 
+    .jukebox:hover {
+        filter: drop-shadow(0 0 0.75rem var(--color-linePurple));
+    }
+
     #raceCar {
         animation: loadIn 2s forwards;
-        animation-delay: 5s;
+        animation-delay: 8s;
         visibility: hidden;
     }
 
@@ -284,7 +294,7 @@
         border: 0px solid #000;
 
         animation: loadIn 2s forwards;
-        animation-delay: 9s;
+        animation-delay: 7s;
         visibility: hidden;
     }
 
@@ -540,10 +550,69 @@
     @keyframes move {
         0%,
         100% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+    }
+
+    @keyframes vinyl {
+        0%,
+        100% {
             scale: 1;
+            border-radius: 50%;
+            box-shadow:
+                -7px -7px 7px 0px var(--color-linePurple),
+                7px -7px 7px 0px var(--color-lineGreen),
+                -7px 7px 7px 0px var(--color-lineYellow),
+                7px 7px 7px 0px var(--color-lineOrange),
+                -7px -7px 7px 0px var(--color-lineRed);
         }
         50% {
             scale: 1.2;
+            border-radius: 50%;
+            box-shadow: none;
+        }
+    }
+
+    @keyframes shake {
+        0%,
+        100% {
+            transform: translateX(0) rotate(0);
+        }
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+            transform: translateX(-20px) rotate(-5deg);
+        }
+        20%,
+        40%,
+        60%,
+        80% {
+            transform: translateX(20px) rotate(5deg);
+        }
+    }
+
+    @keyframes shake2 {
+        0%,
+        100% {
+            transform: translateX(0) rotate(0);
+        }
+        10%,
+        30%,
+        50%,
+        70%,
+        90% {
+            transform: translateX(-5px) rotate(-2deg);
+        }
+        20%,
+        40%,
+        60%,
+        80% {
+            transform: translateX(5px) rotate(2deg);
         }
     }
 
@@ -601,7 +670,7 @@
     .gray,
     .blue,
     .orange {
-        will-change: transform, animation-play-state;
+        will-change: transform, animation-play-state, box-shadow, border-radius;
     }
 
     .container {
@@ -622,5 +691,13 @@
     .noot-4:hover,
     .noot-5:hover {
         will-change: filter, animation-play-state;
+    }
+
+    .jukebox {
+        will-change: transform;
+    }
+
+    .jukebox:hover {
+        will-change: filter;
     }
 </style>
