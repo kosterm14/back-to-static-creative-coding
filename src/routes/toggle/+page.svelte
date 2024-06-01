@@ -76,6 +76,7 @@
             <input type="checkbox" on:click={handleClick} />
             <span class="slider round"></span>
         </label>
+        <a class="layoutLink" href="/layout">Click here for other page</a>
 
         {#if color}
             <div class="splash"></div>
@@ -311,6 +312,17 @@
 
     .slider.round:before {
         border-radius: 50%;
+    }
+
+    .layoutLink {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        color: var(--color-black);
+        text-decoration: none;
+        font-size: 1.5rem;
+        z-index: 1;
+        font-family: sans-serif;
     }
 
     @keyframes ripple {
